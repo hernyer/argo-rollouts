@@ -25,8 +25,6 @@ Mi alternativa Gitops
 
     helm repo add argo https://argoproj.github.io/argo-helm 
     helm pull argo/argo-rollouts --untar
- 
-
 
 ### Kubectl Plugin
 

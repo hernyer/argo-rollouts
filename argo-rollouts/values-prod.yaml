@@ -170,7 +170,7 @@ dashboard:
   containerSecurityContext: {}
   service:
     # -- Sets the type of the Service
-    type: ClusterIP
+    type: LoadBalancer
     # -- LoadBalancer will get created with the IP specified in this field
     loadBalancerIP: ""
     # -- Source IP ranges to allow access to service from

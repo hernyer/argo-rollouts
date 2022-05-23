@@ -5,6 +5,7 @@ Argo Rollouts agrega nuevas estrategias de deploy como canary o blugreen.
 ## Documentación
 
     https://argoproj.github.io/argo-rollouts/
+    https://codefresh.io/learn/argo-rollouts/
 
 ## Instalación de Argo Rollouts
 

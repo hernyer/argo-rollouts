@@ -22,10 +22,32 @@ Descargar el helm chart
     helm repo add argo https://argoproj.github.io/argo-helm
     helm install my-release argo/argo-rollouts
 
-Mi alternativa Gitops
+### Mi alternativa Gitops con Helm
+
+Creo un repo en GH.
+
+    https://github.com/hernyer/argo-rollouts.git
+
+Descargo el chart de argo-rollouts y subo al repo.
 
     helm repo add argo https://argoproj.github.io/argo-helm 
     helm pull argo/argo-rollouts --untar
+
+Creo un archivo value-prod.yaml y modifico los siguientes valores:
+
+  dashboard:
+    # -- Deploy dashboard server
+    enabled: true
+
+  service:
+    # -- Sets the type of the Service
+    type: LoadBalancer
+
+En argo-cd creo una app argo-rollouts en el ns argo-rollouts sincronizada al repo de gh donde esta el value-prod.yaml
+
+En la siguiente url levanta un dashboard de argo rollouts.
+
+    http://localhost:3100/rollouts
 
 ### Kubectl Plugin
 

@@ -6,6 +6,7 @@ Argo Rollouts agrega nuevas estrategias de deploy como canary o blugreen.
 
     https://argoproj.github.io/argo-rollouts/
     https://codefresh.io/learn/argo-rollouts/
+    https://blog.baeke.info/2021/11/01/kubernetes-blue-green-deployments-with-argo-rollouts/
 
 ## Instalación de Argo Rollouts
 
@@ -52,3 +53,19 @@ Descargar el helm chart
 ### Kubectl Plugin
 
     brew install argoproj/tap/kubectl-argo-rollouts
+
+## Canary Strategy
+
+## Bluegreen Strategy
+
+La estrategia bluegreen utiliza 2 servicios (sevicio active y servicio preview), con dos replica set y cada uno con sus pods.
+
+Creo un ns rollout-bluegreen, con argocd levanto la app asociada a GH donde está el rollout.yaml (deployment y 2 servicios).
+
+¿La aplicación blue y yello deben correr en el mismo puerto? Ahora corren en 89 blue y 90 yellow con loadbalancer para ver los cambios.
+
+Opciones disponibles
+
+    abort:
+    rollback: 
+    promote:

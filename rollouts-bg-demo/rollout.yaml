@@ -6,7 +6,7 @@ metadata:
   name: rollout-bluegreen
 spec:
   replicas: 2
-  revisionHistoryLimit: 2
+  revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: rollout-bluegreen
@@ -60,6 +60,6 @@ spec:
     app: rollout-bluegreen
   ports:
   - protocol: TCP
-    port: 89
+    port: 90
     targetPort: 8080
   type: LoadBalancer

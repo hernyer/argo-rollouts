@@ -56,16 +56,27 @@ Descargar el helm chart
 
 ## Canary Strategy
 
+La estrategia canary utiliza 1 servicio y redirecciona tráfico a los pods de forma escalanada de acuerdo a pesos o % asignados.
+
+Creo un ns rollouts-demo y con argocd levanto la app asociada a GH donde está el rollout.yaml y service.yaml.
+
+Argo Rollouts cuenta con 5 pods, al sincronizar crea 1 pod con app:v2 y el resto de los pods corren app:v1. Argo Rollouts queda en estado suspendido hasta presionar promote o full-promote.
+
+    promote: promote de a pasos. 
+    full-promote: promote todo de una sola vez.
+
 ## Bluegreen Strategy
 
-La estrategia bluegreen utiliza 2 servicios (sevicio active y servicio preview), con dos replica set y cada uno con sus pods.
+La estrategia bluegreen utiliza 2 servicios (servicio active y servicio preview), con dos replica set y cada uno con sus pods.
 
-Creo un ns rollout-bluegreen, con argocd levanto la app asociada a GH donde está el rollout.yaml (deployment y 2 servicios).
+Creo un ns rollout-bluegreen y con argocd levanto la app asociada a GH donde está el rollout.yaml (deployment y 2 servicios).
 
-¿La aplicación blue y yello deben correr en el mismo puerto? Ahora corren en 89 blue y 90 yellow con loadbalancer para ver los cambios.
+¿La aplicación blue y yellow deben correr en el mismo puerto? Ahora corren en 89 blue y 90 yellow con loadbalancer para ver los cambios.
 
-Opciones disponibles
+Opciones disponibles:
 
-    abort:
-    rollback: 
-    promote:
+    promote: cambia de versión la app.    
+    rollback: vuelve atras la versión de app.
+    abort: abortar todo cambio. 
+
+Al sincronizar en cada servicio corre una app: v1 y v2. Argo Rollouts queda en estado suspendido hasta presionar promote o rollback.

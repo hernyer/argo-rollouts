@@ -18,7 +18,7 @@ metadata:
   name: orange
 spec:
   ports:
-  - port: 8087
+  - port: 8088
     targetPort: http
     protocol: TCP
     name: http

@@ -46,7 +46,7 @@ spec:
         - name: rollouts-demo
           # Note that this is intentionally using a "bad" version of the image, the bad image has a
           # high error rate, which will cause the experiment to fail prematurely
-          image: argoproj/rollouts-demo:bad-orange
+          image: argoproj/rollouts-demo:orange 
           imagePullPolicy: Always
           ports:
           - name: http
